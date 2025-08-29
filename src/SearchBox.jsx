@@ -15,7 +15,7 @@ export default function SearchBox({ updateInfo }) {
     let response = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric`);
     let jsonResponse = await response.json();
 
-    if (jsonResponse.code !== 200) throw new Error("City not found");
+    // if (jsonResponse.code !== 200) throw new Error("City not found");
 
     return {
       city: city,
