@@ -35,8 +35,7 @@ export default function WeatherApp() {
         justifyContent: "center",
         alignItems: "center",
         p: 2,
-        borderRadius: 3,
-        background: "#e0e0e0", // outside border
+        
       }}
     >
       <Paper

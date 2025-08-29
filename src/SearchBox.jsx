@@ -7,7 +7,7 @@ import { Box, Stack } from "@mui/material";
 export default function SearchBox({ updateInfo }) {
   const [city, setCity] = useState("");
   const [error, setError] = useState(false);
-  const API_URL = "http://api.openweathermap.org/data/2.5/weather";
+  const API_URL = "https://api.openweathermap.org/data/2.5/weather";
   const API_KEY = import.meta.env.VITE_API_KEY;
 
   const getWeatherInfo = async () => {
