@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { Box, Stack } from "@mui/material";
+import Typography from '@mui/material/Typography';
 
 export default function SearchBox({ updateInfo }) {
   const [city, setCity] = useState("");
@@ -14,7 +15,7 @@ export default function SearchBox({ updateInfo }) {
     let response = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric`);
     let jsonResponse = await response.json();
 
-    if (jsonResponse.cod !== 200) throw new Error("City not found");
+    if (jsonResponse.code !== 200) throw new Error("City not found");
 
     return {
       city: city,
