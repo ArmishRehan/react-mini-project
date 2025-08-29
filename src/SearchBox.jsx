@@ -1,8 +1,8 @@
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-import { Box } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { Box, Stack } from "@mui/material";
 
 export default function SearchBox({ updateInfo }) {
   const [city, setCity] = useState("");
@@ -39,18 +39,17 @@ export default function SearchBox({ updateInfo }) {
     }
   };
 
-  return (
-    <Box
-      component="form"
-      onSubmit={handleSubmit}
-      sx={{
-        display: "flex",
-        gap: 2,
-        justifyContent: "center",
-        mb: 3,
-      }}
+
+return (
+  <Box component="form" onSubmit={handleSubmit} sx={{ mb: 3 }}>
+    <Stack
+      direction={{ xs: "column", sm: "row" }} // column on mobile, row on desktop
+      spacing={2}
+      justifyContent="center"
+      alignItems="center"
     >
       <TextField
+        fullWidth
         label="Enter City"
         variant="outlined"
         value={city}
@@ -65,14 +64,17 @@ export default function SearchBox({ updateInfo }) {
         variant="contained"
         color="primary"
         startIcon={<SearchIcon />}
+        sx={{ width: { xs: "100%", sm: "auto" } }} // full width button on mobile
       >
         Search
       </Button>
-      {error && (
-        <p style={{ color: "red", marginTop: "10px" }}>
-          ❌ No such place in our API
-        </p>
-      )}
-    </Box>
-  );
+    </Stack>
+
+    {error && (
+      <Typography sx={{ color: "red", mt: 1, textAlign: "center" }}>
+        ❌ No such place in our API
+      </Typography>
+    )}
+  </Box>
+);
 }

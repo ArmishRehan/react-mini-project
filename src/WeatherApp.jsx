@@ -40,24 +40,29 @@ export default function WeatherApp() {
       }}
     >
       <Paper
-        elevation={6}
-        sx={{
-          p: 4,
-          borderRadius: 5,
-          maxWidth: 500,
-          width: "100%",
-          background: getBackground(),
-          color: "#fff",
-          textAlign: "center",
-          boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
-        }}
-      >
-        <Typography
-          variant="h4"
-          sx={{ fontWeight: "bold", mb: 3, textShadow: "1px 1px 2px rgba(0,0,0,0.4)" }}
-        >
-          🌤️ Weather App
-        </Typography>
+  elevation={6}
+  sx={{
+    p: { xs: 2, sm: 4 },             // smaller padding on mobile
+    borderRadius: 5,
+    maxWidth: 500,
+    width: "100%",                   // full width on mobile
+    background: getBackground(),
+    color: "#fff",
+    textAlign: "center",
+    boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+  }}
+>
+  <Typography
+    variant="h4"
+    sx={{
+      fontWeight: "bold",
+      mb: 3,
+      fontSize: { xs: "1.8rem", sm: "2.2rem" },  // smaller font on mobile
+      textShadow: "1px 1px 2px rgba(0,0,0,0.4)",
+    }}
+  >
+    🌤️ Weather App
+  </Typography>
 
         <SearchBox updateInfo={updateInfo} />
         <InfoBox info={weatherInfo} />
